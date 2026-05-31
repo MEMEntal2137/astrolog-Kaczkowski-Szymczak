@@ -55,7 +55,7 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ margin: "20px", padding: "30px", border: "1px solid #ccc" }}>
+        <form onSubmit={handleSubmit} style={{ margin: "20px", padding: "30px", border: "1px solid #ccc", width:"65%", height:"50%"}}>
             <h3>Zgłoś anomalię/obiekt</h3>
 
             <div>

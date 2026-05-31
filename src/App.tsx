@@ -3,6 +3,8 @@ import './App.css'
 import CatalogList from "./CatalogList.tsx";
 import DiscoveryForm from "./DiscoveryForm.tsx";
 import type {Obiekt} from "./Obiekt.tsx";
+import ObjectDetails from "./ObjectDetails.tsx";
+
 const TablicaObiektow: Obiekt[]=[{
   name: "Saturn",
   type: "Planeta",
@@ -37,11 +39,15 @@ function App() {
   const [obiekty, setObiekty] = useState<Obiekt[]>(TablicaObiektow);
   return (
     <>
+      <div style={{display:"flex", flexDirection:"column", justifyContent:"center", width: "100%", height:"100%" }}>
       <DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
-      {CatalogList(obiekty)} 
+      {CatalogList(obiekty)}
+      {ObjectDetails()}
+      </div>
     </>
   )
 }
+
 
 export default App
 export { TablicaObiektow }
