@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import './App.css'
 import CatalogList from "./CatalogList.tsx";
+import DiscoveryForm from "./DiscoveryForm.tsx";
 import type {Obiekt} from "./Obiekt.tsx";
 const TablicaObiektow: Obiekt[]=[{
   name: "Saturn",
@@ -32,9 +34,11 @@ const TablicaObiektow: Obiekt[]=[{
     picture: "orion.png"
   }];
 function App() {
+  const [obiekty, setObiekty] = useState<Obiekt[]>(TablicaObiektow);
   return (
     <>
-      {CatalogList(TablicaObiektow)}
+      <DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
+      {CatalogList(obiekty)} 
     </>
   )
 }
