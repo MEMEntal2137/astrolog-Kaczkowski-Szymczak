@@ -55,7 +55,7 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ margin: "20px", padding: "30px", border: "1px solid #ccc" }}>
+        <form onSubmit={handleSubmit} style={{ margin: "20px", padding: "30px", border: "1px solid #ccc", width:"65%", height:"50%"}}>
             <h3>Zgłoś anomalię/obiekt</h3>
 
             <div>
@@ -75,7 +75,7 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
 
             <div>
                 <label>Link do zdjęcia:</label><br />
-                <input type="text" value={picture} onChange={handlePictureChange} placeholder="np. jowisz.png" />
+                <input type="text" value={picture} onChange={handlePictureChange} placeholder="np. https://archeologia.edu.pl/wp-content/uploads/2022/10/Orion-2310277780-PuntaAllen2.jpg" />
             </div>
 
             <br />
