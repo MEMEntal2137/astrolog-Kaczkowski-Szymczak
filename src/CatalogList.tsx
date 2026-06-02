@@ -1,12 +1,12 @@
+import type { MouseEventHandler } from "react";
 import type {Obiekt} from "./Obiekt";
-import {HandleObiektOnCLick} from "./ObjectDetails.tsx";
-function CatalogList(Lista:Obiekt[]) {
+function CatalogList(props: { lista: Obiekt[]; clickHandle: MouseEventHandler<HTMLLIElement> | void; }) {
     return (
         <>
             <div>
         <ul style={{listStyleType:"none"}}>
-            {Lista.map((item,index) => (
-                <li id="li"
+            {props.lista.map((item:Obiekt,index:number) => (
+                <li onClick={() => props.clickHandle(item)} id="li"
                     style={{
                         display: "flex",
                         flexDirection: "row",
@@ -19,7 +19,7 @@ function CatalogList(Lista:Obiekt[]) {
                     }}
                     key={index}
                 >
-                    <div><img onClick={HandleObiektOnCLick(item)} style={{width: 50, height: 50}} src={item.picture} alt={"tak"}/></div>
+                    <div><img style={{width: 50, height: 50}} src={item.picture} alt={"tak"}/></div>
                     {item.name}<br/>{item.type}<br/>{item.space} Lat świetlnych</li>
             ))}
         </ul>

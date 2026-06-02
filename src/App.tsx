@@ -5,7 +5,7 @@ import DiscoveryForm from "./DiscoveryForm.tsx";
 import type {Obiekt} from "./Obiekt.tsx";
 import ObjectDetails from "./ObjectDetails.tsx";
 
-const TablicaObiektow: Obiekt[]=[{
+const tablicaObiektow: Obiekt[]=[{
   name: "Saturn",
   type: "Planeta",
   space: 100,
@@ -35,14 +35,19 @@ const TablicaObiektow: Obiekt[]=[{
     space: 1000,
     picture: "https://archeologia.edu.pl/wp-content/uploads/2022/10/Orion-2310277780-PuntaAllen2.jpg"
   }];
+
 function App() {
-  const [obiekty, setObiekty] = useState<Obiekt[]>(TablicaObiektow);
+  const [detale, setDetale] = useState<Obiekt>({name:"", type:"", space:0, picture:"https://c8.alamy.com/comp/AKP42K/mature-indian-man-thumbs-up-AKP42K.jpg"});
+  function handleObiektOnClick(item:Obiekt) {
+    setDetale(item)
+  }
+  const [obiekty, setObiekty] = useState<Obiekt[]>(tablicaObiektow);
   return (
     <>
       <div style={{display:"flex", flexDirection:"column", justifyContent:"center", width: "100%", height:"100%" }}>
-      <DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
-      {CatalogList(obiekty)}
-      {ObjectDetails()}
+      <CatalogList lista={tablicaObiektow} clickHandle={handleObiektOnClick} />
+        <DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
+        <ObjectDetails name={detale.name} type={detale.type} space={detale.space} picture={detale.picture} />
       </div>
     </>
   )
@@ -50,4 +55,5 @@ function App() {
 
 
 export default App
-export { TablicaObiektow }
+//export { tablicaObiektow }
+//<DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
