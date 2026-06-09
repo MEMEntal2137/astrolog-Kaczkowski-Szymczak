@@ -49,7 +49,7 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
 
         onAddObiekt(nowyObiekt);
         setName("");
-        setType("");
+        setType("Planeta");
         setSpace(0);
         setPicture("");
     };

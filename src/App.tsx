@@ -45,8 +45,8 @@ function App() {
   return (
     <>
       <div style={{display:"flex", flexDirection:"column", justifyContent:"center", width: "100%", height:"100%" }}>
-      <CatalogList lista={tablicaObiektow} clickHandle={handleObiektOnClick} />
-        <DiscoveryForm onAddObiekt={(nowy) => setObiekty([...obiekty, nowy])} />
+      <CatalogList lista={obiekty} clickHandle={handleObiektOnClick} />
+        <DiscoveryForm onAddObiekt={(nowy) => setObiekty(prevObiekty => [...prevObiekty, nowy])} />
         <ObjectDetails name={detale.name} type={detale.type} space={detale.space} picture={detale.picture} />
       </div>
     </>
