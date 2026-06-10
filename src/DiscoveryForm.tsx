@@ -29,15 +29,12 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
     }
 
 
-
     const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (name.trim() === "" || type.trim() === "") {
             alert("Proszę podać nazwę i typ obiektu!");
             return;
         }
-
-
 
 
         const nowyObiekt: Obiekt = {
@@ -55,33 +52,34 @@ function DiscoveryForm({ onAddObiekt }: DiscoveryFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ margin: "20px", padding: "30px", border: "1px solid #ccc", width:"65%", height:"50%"}}>
-            <h3>Zgłoś anomalię/obiekt</h3>
+        <form onSubmit={handleSubmit} className="discovery-form">
+            <h3 style={{textAlign: "center", margin: "0 0 20px 0", color: "white"}}>Zgłoś anomalię/obiekt</h3>
 
-            <div>
-                <label>Nazwa obiektu:</label><br />
+            <div className="form-group">
+                <label>Nazwa obiektu:</label>
                 <input type="text" value={name} onChange={handleNameChange} placeholder="np. Jowisz" />
             </div>
 
-            <div>
-                <label>Typ:</label><br />
+            <div className="form-group">
+                <label>Typ:</label>
                 <input type="text" value={type} onChange={handleTypeChange} placeholder="np. Planeta, Gwiazda" />
             </div>
 
-            <div>
-                <label>Odległość (space):</label><br />
+            <div className="form-group">
+                <label>Odległość (space):</label>
                 <input type="number" value={space} onChange={handleSpaceChange} />
             </div>
 
-            <div>
-                <label>Link do zdjęcia:</label><br />
+            <div className="form-group">
+                <label>Link do zdjęcia:</label>
                 <input type="text" value={picture} onChange={handlePictureChange} placeholder="np. https://archeologia.edu.pl/wp-content/uploads/2022/10/Orion-2310277780-PuntaAllen2.jpg" />
             </div>
 
-            <br />
-            <button type="submit">Dodaj do Katalogu</button>
+            <button type="submit" className="counter" style={{width: "100%", margin: "10px 0 0 0", cursor: "pointer"}}>
+                Dodaj do Katalogu
+            </button>
         </form>
     );
 }
 
-export default DiscoveryForm
+    export default DiscoveryForm

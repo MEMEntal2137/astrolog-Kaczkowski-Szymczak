@@ -3,11 +3,14 @@ function ObjectDetails(item:Obiekt)
 {
     return (
         <>
-            <div style={{backgroundColor:"mediumpurple", width:"65%", height:"50%", margin:"20px", display:"flex", flexDirection:"row"}}>
-                <img alt={"Blank"} style={{width:"25%", height:"25%"}} src={item.picture}></img>
-                {item.name==""? (<p>Kliknij obiekt aby uzyskać więcej informacji!</p>):(<p>{item.name}<br/>{item.type}<br/>{item.space} lat świetlnych</p>)}
+            <div className="object-details-box">
+                <img alt={"Blank"} style={{width:"80px", height:"80px", borderRadius: "8px", objectFit: "cover"}} src={item.picture}></img>
+                <div style={{color: "var(--text-h)"}}>
+                    {item.name==""? (<p>Kliknij obiekt aby uzyskać więcej informacji!</p>):(<p>{item.name}<br/>{item.type}<br/>{item.space} lat świetlnych</p>)}
+                </div>
             </div>
         </>
     )
 }
 export default ObjectDetails;
+
